@@ -1,128 +1,86 @@
 import { useState } from 'react'
 import { useActiveSection } from '@/hooks/useActiveSection'
-import { useScrollVisibility } from '@/hooks/useScrollVisibility'
 import { cn } from '@/lib/utils'
+import { SITE } from '@/lib/site'
 
 const navItems = [
+  { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'work', label: 'Work' },
-  { id: 'education', label: 'Education' },
-  { id: 'writing', label: 'Writing' },
-  { id: 'speaking', label: 'Speaking' },
-]
-
-const socialLinks = [
-  { label: 'Mail', href: 'mailto:bruce@banner.com' },
-  { label: 'Instagram', href: 'https://instagram.com' },
-  { label: 'Vimeo', href: 'https://vimeo.com' },
+  { id: 'practice', label: 'Practice Areas' },
+  { id: 'why', label: 'Why Us' },
+  { id: 'testimonials', label: 'Testimonials' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 export function Navigation() {
   const activeSection = useActiveSection()
-  const isVisible = useScrollVisibility()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setMobileMenuOpen(false)
-    }
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
+    setMobileMenuOpen(false)
   }
 
   return (
-    <>
-      {/* Mobile Header - Only visible on mobile */}
-      <div className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-start md:hidden">
-        {/* Menu Button - Left */}
-        <div className="relative">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-sm text-white mix-blend-difference"
-          >
-            {mobileMenuOpen ? 'Close' : 'Menu'}
-          </button>
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/60 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-8">
+        <button
+          onClick={() => scrollToSection('home')}
+          className="font-display text-xl md:text-2xl tracking-tight text-white"
+        >
+          {SITE.shortName}
+        </button>
 
-          {/* Mobile Menu Dropdown */}
-          <div
-            className={cn(
-              'flex flex-col items-start gap-3 mt-6 transition-all duration-300',
-              mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'
-            )}
-          >
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={cn(
-                  'text-sm text-white mix-blend-difference transition-all duration-300 relative py-1',
-                  'hover:opacity-60',
-                  activeSection === item.id && 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-white'
-                )}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Social Links - Right (Mobile) */}
-        <div className="flex items-center gap-4">
-          {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith('mailto') ? undefined : '_blank'}
-              rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-              className="text-sm text-white mix-blend-difference hover:opacity-60 transition-opacity"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Desktop Social Links - Fixed Top Right (hidden on mobile) */}
-      <div className="hidden md:block fixed top-0 right-0 z-50 p-6 md:p-10">
-        <div className="flex items-center gap-6 justify-end">
-          {socialLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith('mailto') ? undefined : '_blank'}
-              rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-              className="text-sm text-white mix-blend-difference hover:opacity-60 transition-opacity"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Desktop Navigation Items - Fixed Bottom Right (hidden on mobile) */}
-      <nav 
-        className={cn(
-          'hidden md:block fixed bottom-0 right-0 z-50 p-6 md:p-10 transition-all duration-500',
-          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8 pointer-events-none'
-        )}
-      >
-        <div className="flex flex-col items-end gap-3">
+        <nav className="hidden lg:flex items-center gap-6">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={cn(
-                'text-sm text-white mix-blend-difference transition-all duration-300 relative py-1',
-                'hover:opacity-60',
-                activeSection === item.id && 'after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-white'
+                'text-xs font-medium uppercase tracking-widest text-gray-400 transition-colors hover:text-white',
+                activeSection === item.id && 'text-white'
               )}
             >
               {item.label}
             </button>
           ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <a
+            href={SITE.phoneHref}
+            className="hidden sm:inline-flex rounded-lg bg-white px-4 py-2 text-xs font-semibold uppercase tracking-widest text-black hover:bg-gray-200 transition-colors"
+          >
+            Call Now · {SITE.phone}
+          </a>
+          <button
+            onClick={() => setMobileMenuOpen((o) => !o)}
+            className="lg:hidden text-xs font-medium uppercase tracking-widest text-white"
+          >
+            {mobileMenuOpen ? 'Close' : 'Menu'}
+          </button>
         </div>
-      </nav>
-    </>
+      </div>
+
+      {mobileMenuOpen && (
+        <nav className="lg:hidden border-t border-white/10 px-4 py-4 flex flex-col gap-3">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="text-left text-xs font-medium uppercase tracking-widest text-gray-300 hover:text-white"
+            >
+              {item.label}
+            </button>
+          ))}
+          <a
+            href={SITE.phoneHref}
+            className="mt-2 rounded-lg bg-white px-4 py-2 text-center text-xs font-semibold uppercase tracking-widest text-black"
+          >
+            Call {SITE.phone}
+          </a>
+        </nav>
+      )}
+    </header>
   )
 }

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 
-const sections = ['about', 'skills', 'work', 'education', 'writing', 'speaking', 'contact']
+const sections = ['home', 'about', 'practice', 'why', 'testimonials', 'contact']
 
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState<string>('about')
+  const [activeSection, setActiveSection] = useState<string>('home')
 
   useEffect(() => {
     const observers: IntersectionObserver[] = []

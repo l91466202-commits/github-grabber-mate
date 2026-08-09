@@ -1,125 +1,76 @@
 import { motion } from 'framer-motion'
+import portrait from '@/assets/tariq-portrait.jpg'
+import { SITE } from '@/lib/site'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: '-100px' },
-  transition: { duration: 0.8, ease: 'easeOut' }
+  transition: { duration: 0.8, ease: 'easeOut' },
 }
+
+const details = [
+  { label: 'Full Name', value: SITE.name },
+  { label: 'Qualifications', value: SITE.qualifications },
+  { label: 'Designation', value: 'Advocate, High Court, Mumbai' },
+  { label: 'Experience', value: SITE.experience },
+  { label: 'Phone', value: SITE.phone },
+  { label: 'Email', value: SITE.email },
+  { label: 'Office', value: SITE.address },
+  { label: 'Working Hours', value: SITE.hours },
+]
 
 export function About() {
   return (
     <section id="about" className="section-padding">
       <div className="max-w-7xl mx-auto">
-        {/* Section Label */}
         <motion.div {...fadeInUp} className="mb-16">
-          <span className="text-sm text-gray-500 tracking-widest uppercase">About Bruce</span>
+          <span className="text-sm text-gray-500 tracking-widest uppercase">About</span>
           <div className="w-6 h-px bg-gray-600 mt-2" />
         </motion.div>
 
-        {/* First Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 mb-24 lg:mb-32">
-          <motion.div
-            {...fadeInUp}
-            className="order-2 lg:order-1"
-          >
-            <img
-              src="https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Early work - Street photography"
-              className="w-full h-auto grayscale"
-            />
-            <p className="mt-4 text-xs text-gray-500 tracking-widest uppercase">
-              PARSONS SCHOOL OF DESIGN - NEW YORK / USA
-            </p>
-          </motion.div>
-
-          <motion.div
-            {...fadeInUp}
-            transition={{ ...fadeInUp.transition, delay: 0.2 }}
-            className="order-1 lg:order-2 flex items-center"
-          >
-            <p className="text-base lg:text-lg text-gray-300 leading-relaxed">
-              It may not be obvious, but Bruce studied computer science at MIT, 
-              with a minor in visual arts. Preferring lenses to algorithms, 
-              he quickly abandoned a promising tech career to study Photography 
-              and Visual Storytelling at Parsons School of Design in New York.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Quote Block */}
-        <motion.div
+        <motion.h2
           {...fadeInUp}
-          className="mb-24 lg:mb-32"
+          className="font-display text-[10vw] lg:text-section leading-none tracking-tight mb-12 lg:mb-20"
         >
-          <h2 className="font-display text-[8vw] lg:text-section leading-none tracking-tight text-gray-300">
-            "NAMED BY THE<br />
-            <span className="text-white underline underline-offset-8">2023 APERTURE AWARDS</span><br />
-            AS ONE OF THE TOP TEN<br />
-            PHOTOGRAPHERS IN THE WORLD."
-          </h2>
-          <p className="mt-6 text-sm text-gray-500 tracking-widest uppercase">
-            GLOBAL PHOTOGRAPHY<br />
-            DIRECTOR RANK
-          </p>
-        </motion.div>
+          ABOUT ADV.<br />TARIQ CHAUDHARY
+        </motion.h2>
 
-        {/* Second Block */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24 mb-24 lg:mb-32">
-          <motion.div
-            {...fadeInUp}
-            className="flex items-center lg:text-right"
-          >
-            <p className="text-base lg:text-lg text-gray-300 leading-relaxed">
-              Bruce spent a little over a year in New York before moving to 
-              London as a Junior Photographer for Magnum Photos. He met some 
-              incredible people at the legendary agency, and they're still 
-              friends to this day.
-            </p>
-          </motion.div>
-
-          <motion.div
-            {...fadeInUp}
-            transition={{ ...fadeInUp.transition, delay: 0.2 }}
-          >
-            <img
-              src="https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Magnum Photos Office"
-              className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700"
-            />
-            <p className="mt-4 text-xs text-gray-500 tracking-widest uppercase">
-              MAGNUM PHOTOS - LONDON / UK
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Third Block */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24">
           <motion.div {...fadeInUp}>
             <img
-              src="https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg?auto=compress&cs=tinysrgb&w=1200"
-              alt="Bruce shooting for National Geographic"
-              className="w-full h-auto grayscale"
+              src={portrait}
+              alt="Portrait of Adv. Tariq A.A. Chaudhary"
+              className="w-full h-auto rounded-xl grayscale hover:grayscale-0 transition-all duration-700"
+              loading="lazy"
             />
             <p className="mt-4 text-xs text-gray-500 tracking-widest uppercase">
-              SHOOTING FOR NATIONAL GEOGRAPHIC - PATAGONIA / AR<br />
-              (2019)
+              Advocate — High Court, Mumbai
             </p>
           </motion.div>
 
-          <motion.div
-            {...fadeInUp}
-            transition={{ ...fadeInUp.transition, delay: 0.2 }}
-            className="flex items-center"
-          >
+          <motion.div {...fadeInUp} transition={{ ...fadeInUp.transition, delay: 0.2 }}>
             <p className="text-base lg:text-lg text-gray-300 leading-relaxed">
-              From London, Bruce moved to Berlin with VII Photo Agency. Where he 
-              worked under a great Art Director, Hans Mueller. From there he 
-              went on to build a truly global career, first as Staff Photographer 
-              then as Creative Director for the likes of National Geographic, 
-              Time Magazine, and The New York Times, before finally going 
-              independent in 2020.
+              With over 13 years at the bar, Adv. Tariq A.A. Chaudhary represents individuals,
+              businesses, housing societies, and institutions before the High Court, Civil Courts,
+              Tribunals, quasi-judicial authorities, and government departments in Mumbai. His
+              practice is built on meticulous preparation, clear counsel, and an unwavering
+              commitment to protecting his clients' legal and proprietary rights.
             </p>
+            <p className="mt-6 text-base lg:text-lg text-gray-400 leading-relaxed">
+              Every matter receives personal attention — from the first consultation through
+              drafting, litigation management, and enforcement — with transparent fees and
+              practical, strategy-driven advice.
+            </p>
+
+            <dl className="mt-10 divide-y divide-gray-800 border-t border-gray-800">
+              {details.map((d) => (
+                <div key={d.label} className="py-4 grid grid-cols-3 gap-4">
+                  <dt className="text-xs text-gray-500 tracking-widest uppercase">{d.label}</dt>
+                  <dd className="col-span-2 text-sm text-gray-300">{d.value}</dd>
+                </div>
+              ))}
+            </dl>
           </motion.div>
         </div>
       </div>

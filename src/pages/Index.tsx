@@ -2,12 +2,12 @@ import { Navigation } from '@/components/Navigation'
 import { GrainOverlay } from '@/components/GrainOverlay'
 import { Hero } from '@/components/Hero'
 import { About } from '@/components/About'
-import { Skills } from '@/components/Skills'
-import { Work } from '@/components/Work'
-import { Education } from '@/components/Education'
-import { Writing } from '@/components/Writing'
-import { Speaking } from '@/components/Speaking'
+import { PracticeAreas } from '@/components/PracticeAreas'
+import { WhyChooseUs } from '@/components/WhyChooseUs'
+import { Testimonials } from '@/components/Testimonials'
 import { Contact } from '@/components/Contact'
+import { FloatingActions } from '@/components/FloatingActions'
+import { Chatbot } from '@/components/Chatbot'
 
 export default function Index() {
   return (
@@ -17,14 +17,13 @@ export default function Index() {
       <main>
         <Hero />
         <About />
-        <Skills />
-        <Work />
-        <Education />
-        <Writing />
-        <Speaking />
+        <PracticeAreas />
+        <WhyChooseUs />
+        <Testimonials />
         <Contact />
       </main>
+      <FloatingActions />
+      <Chatbot />
     </div>
   )
 }
-
