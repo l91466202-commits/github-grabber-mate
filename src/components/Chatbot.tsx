@@ -75,14 +75,15 @@ export function Chatbot() {
       <button
         onClick={() => setOpen((o) => !o)}
         aria-label="Open legal assistant chat"
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-lg hover:bg-gray-200 transition-colors"
+        className="fixed bottom-24 right-6 z-50 flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-xs font-semibold uppercase tracking-widest text-black shadow-lg hover:bg-gray-200 transition-colors"
       >
-        {open ? <X className="h-5 w-5" /> : <MessageSquare className="h-5 w-5" />}
+        {open ? <X className="h-4 w-4" /> : <MessageSquare className="h-4 w-4" />}
+        <span>{open ? 'Close' : 'Chat'}</span>
       </button>
 
       <div
         className={cn(
-          'fixed bottom-24 right-6 z-50 w-[calc(100vw-3rem)] max-w-sm rounded-xl border border-gray-800 bg-[#0d0d0d] shadow-2xl transition-all duration-300',
+          'fixed bottom-44 right-6 z-50 w-[calc(100vw-3rem)] max-w-sm rounded-xl border border-gray-800 bg-[#0d0d0d] shadow-2xl transition-all duration-300',
           open ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 translate-y-4'
         )}
       >
