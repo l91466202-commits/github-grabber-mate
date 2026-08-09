@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import portrait from '@/assets/tariq-portrait.jpg.asset.json'
+import portrait from '@/assets/tariq-portrait.jpg'
 import { SITE } from '@/lib/site'
 
 export function Hero() {
@@ -7,7 +7,7 @@ export function Hero() {
     <section id="home" className="relative min-h-screen w-full overflow-hidden flex items-end">
       <div className="absolute inset-0">
         <img
-          src={portrait.url}
+          src={portrait}
           alt="Adv. Tariq A.A. Chaudhary, Advocate, High Court, Mumbai"
           className="w-full h-full object-cover object-top grayscale opacity-60"
         />

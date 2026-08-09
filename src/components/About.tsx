@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import portrait from '@/assets/tariq-portrait.jpg.asset.json'
+import portrait from '@/assets/tariq-portrait.jpg'
 import { SITE } from '@/lib/site'
 
 const fadeInUp = {
@@ -39,7 +39,7 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-24">
           <motion.div {...fadeInUp}>
             <img
-              src={portrait.url}
+              src={portrait}
               alt="Portrait of Adv. Tariq A.A. Chaudhary"
               className="w-full h-auto rounded-xl grayscale hover:grayscale-0 transition-all duration-700"
               loading="lazy"
