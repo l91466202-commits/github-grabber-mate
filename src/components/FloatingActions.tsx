@@ -3,7 +3,7 @@ import { Phone, MessageCircle } from 'lucide-react'
 
 export function FloatingActions() {
   return (
-    <div className="fixed bottom-6 right-24 z-40 flex items-center gap-3">
+    <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
       <a
         href={SITE.phoneHref}
         className="flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-xs font-semibold uppercase tracking-widest text-black shadow-lg hover:bg-gray-200 transition-colors"
