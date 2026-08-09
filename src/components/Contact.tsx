@@ -124,7 +124,7 @@ export function Contact() {
 
             <iframe
               title="Office location map"
-              className="w-full h-64 rounded-xl border border-gray-800 grayscale"
+              className="w-full h-64 rounded-xl border border-gray-800"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               src="https://www.google.com/maps?q=Sakinaka%20Metro%20Station%2C%20Andheri%20East%2C%20Mumbai%20400072&output=embed"

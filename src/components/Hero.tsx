@@ -25,7 +25,7 @@ export function Hero() {
             <span className="block text-white">TARIQ A.A.</span>
             <span className="block text-white">CHAUDHARY</span>
           </h1>
-          <p className="mt-4 text-sm sm:text-base text-gray-300 tracking-widest uppercase">
+          <p className="mt-4 text-xs sm:text-base text-gray-300 tracking-wider uppercase leading-relaxed break-words">
             Advocate — High Court, Mumbai · {SITE.qualifications}
           </p>
           <motion.p
