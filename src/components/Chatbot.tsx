@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { MessageSquare, X, Send } from 'lucide-react'
+import { Send } from 'lucide-react'
 import { SITE } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
@@ -119,6 +119,5 @@ export function Chatbot({ open, setOpen }: ChatbotProps) {
           </button>
         </form>
       </div>
-    </>
   )
 }
