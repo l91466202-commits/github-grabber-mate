@@ -65,9 +65,9 @@ export function About() {
 
             <dl className="mt-10 divide-y divide-gray-800 border-t border-gray-800">
               {details.map((d) => (
-                <div key={d.label} className="py-4 grid grid-cols-3 gap-4">
+                <div key={d.label} className="py-4 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
                   <dt className="text-xs text-gray-500 tracking-widest uppercase">{d.label}</dt>
-                  <dd className="col-span-2 text-sm text-gray-300">{d.value}</dd>
+                  <dd className="text-sm text-gray-300 break-words sm:col-span-2">{d.value}</dd>
                 </div>
               ))}
             </dl>
