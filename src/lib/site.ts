@@ -4,7 +4,7 @@ export const SITE = {
   tagline: 'Advocate | High Court, Mumbai',
   qualifications: 'B.Sc., LL.B.',
   experience: '13+ Years',
-  phone: '+91 93206 76924',
+  phone: '9320676924',
   phoneHref: 'tel:+919320676924',
   whatsapp: 'https://wa.me/919320676924',
   email: 'advtariqahadchaudhary@gmail.com',

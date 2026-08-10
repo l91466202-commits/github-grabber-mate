@@ -23,7 +23,6 @@ export default function Index() {
         <Contact />
       </main>
       <FloatingActions />
-      <Chatbot />
     </div>
   )
 }
