@@ -50,8 +50,12 @@ function reply(input: string) {
   return pick('fallback')
 }
 
-export function Chatbot() {
-  const [open, setOpen] = useState(false)
+type ChatbotProps = {
+  open: boolean
+  setOpen: (open: boolean) => void
+}
+
+export function Chatbot({ open, setOpen }: ChatbotProps) {
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<Msg[]>([
     { role: 'bot', text: `${R.greeting.en}\n${R.greeting.hi}` },
@@ -71,22 +75,12 @@ export function Chatbot() {
   }
 
   return (
-    <>
-      <button
-        onClick={() => setOpen((o) => !o)}
-        aria-label="Open legal assistant chat"
-        className="fixed bottom-24 right-6 z-50 flex items-center gap-2 rounded-xl bg-white px-4 py-3 text-xs font-semibold uppercase tracking-widest text-black shadow-lg hover:bg-gray-200 transition-colors"
-      >
-        {open ? <X className="h-4 w-4" /> : <MessageSquare className="h-4 w-4" />}
-        <span>{open ? 'Close' : 'Chat'}</span>
-      </button>
-
-      <div
-        className={cn(
-          'fixed bottom-44 right-6 z-50 w-[calc(100vw-3rem)] max-w-sm rounded-xl border border-gray-800 bg-[#0d0d0d] shadow-2xl transition-all duration-300',
-          open ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 translate-y-4'
-        )}
-      >
+    <div
+      className={cn(
+        'fixed bottom-[8rem] right-6 z-50 w-[calc(100vw-3rem)] max-w-sm rounded-xl border border-gray-800 bg-[#0d0d0d] shadow-2xl transition-all duration-300',
+        open ? 'opacity-100 translate-y-0' : 'pointer-events-none opacity-0 translate-y-4'
+      )}
+    >
         <div className="border-b border-gray-800 px-4 py-3">
           <p className="text-sm font-semibold uppercase tracking-widest text-white">Legal Assistant</p>
           <p className="text-xs text-gray-500">English / हिंदी</p>
