@@ -35,9 +35,10 @@ export function CinematicIntro() {
       {!done && (
         <motion.div
           key="intro"
-          className="fixed inset-0 z-[10000] overflow-hidden bg-black"
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[10000] transform-gpu overflow-hidden bg-black will-change-[opacity]"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0, filter: 'blur(6px)' }}
+          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
           aria-hidden="true"
         >
           {/* Fireball travelling from corner to centre */}
