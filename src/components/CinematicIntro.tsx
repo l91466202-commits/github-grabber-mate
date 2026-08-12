@@ -19,7 +19,7 @@ export function CinematicIntro() {
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     document.body.style.overflow = 'hidden'
-    const t = setTimeout(() => setDone(true), reduce ? 300 : 5400)
+    const t = setTimeout(() => setDone(true), reduce ? 300 : 4300)
     return () => {
       clearTimeout(t)
       document.body.style.overflow = ''
