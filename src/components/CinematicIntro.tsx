@@ -19,7 +19,7 @@ export function CinematicIntro() {
   useEffect(() => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     document.body.style.overflow = 'hidden'
-    const t = setTimeout(() => setDone(true), reduce ? 300 : 5400)
+    const t = setTimeout(() => setDone(true), reduce ? 300 : 4300)
     return () => {
       clearTimeout(t)
       document.body.style.overflow = ''
@@ -35,9 +35,10 @@ export function CinematicIntro() {
       {!done && (
         <motion.div
           key="intro"
-          className="fixed inset-0 z-[10000] overflow-hidden bg-black"
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.7, ease: 'easeInOut' }}
+          className="fixed inset-0 z-[10000] transform-gpu overflow-hidden bg-black will-change-[opacity]"
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0, filter: 'blur(6px)' }}
+          transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
           aria-hidden="true"
         >
           {/* Fireball travelling from corner to centre */}
@@ -149,10 +150,10 @@ export function CinematicIntro() {
 
           {/* Portrait slides down */}
           <motion.div
-            className="absolute inset-x-0 top-0 flex justify-center"
-            initial={{ y: '-100%', opacity: 0 }}
+            className="absolute inset-x-0 top-0 flex transform-gpu justify-center will-change-transform"
+            initial={{ y: '-14%', opacity: 0 }}
             animate={{ y: '0%', opacity: 1 }}
-            transition={{ duration: 1.2, delay: 3.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.4, delay: 2.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="relative h-[70vh] w-full max-w-2xl">
               <img
