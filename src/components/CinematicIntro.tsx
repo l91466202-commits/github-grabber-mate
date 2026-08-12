@@ -150,10 +150,10 @@ export function CinematicIntro() {
 
           {/* Portrait slides down */}
           <motion.div
-            className="absolute inset-x-0 top-0 flex justify-center"
-            initial={{ y: '-100%', opacity: 0 }}
+            className="absolute inset-x-0 top-0 flex transform-gpu justify-center will-change-transform"
+            initial={{ y: '-14%', opacity: 0 }}
             animate={{ y: '0%', opacity: 1 }}
-            transition={{ duration: 1.2, delay: 3.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 1.4, delay: 2.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="relative h-[70vh] w-full max-w-2xl">
               <img
