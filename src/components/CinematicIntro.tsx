@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import portrait from '@/assets/tariq-portrait.jpg'
 
 function makeSparks(count: number) {
   return Array.from({ length: count }, (_, i) => {
@@ -153,24 +152,6 @@ export function CinematicIntro() {
             </motion.p>
           </div>
 
-          {/* Portrait slides down */}
-          <motion.div
-            className="absolute inset-x-0 top-0 flex transform-gpu justify-center will-change-transform"
-            initial={{ y: '-14%', opacity: 0 }}
-            animate={{ y: '0%', opacity: 1 }}
-            transition={{ duration: 1.4, delay: 2.3, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="relative h-[70vh] w-full max-w-2xl">
-              <img
-                src={portrait}
-                alt=""
-                decoding="async"
-                fetchPriority="high"
-                className="h-full w-full object-cover object-top grayscale"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black" />
-            </div>
-          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
