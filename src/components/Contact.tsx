@@ -157,6 +157,12 @@ export function Contact() {
           <p className="text-xs text-gray-600">
             This website is for informational purposes only and does not constitute legal advice.
           </p>
+          <p className="text-xs text-gray-500">
+            Developed by Luma Labs. For business and enquiries email us on{' '}
+            <a href="mailto:lumalabs339@gmail.com" className="underline hover:text-gray-400">
+              lumalabs339@gmail.com
+            </a>
+          </p>
         </motion.footer>
       </div>
     </section>
